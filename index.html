@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¡Feliz Día del Padre!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #959ae6, #cfdef3);
+      color: #333;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
+      background: #0e4d92;
+      color: white;
+      animation: slideDown 1s ease-in-out;
+    }
+
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .mensaje, .imagen, .especial {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mensaje {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .mensaje h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #0e4d92;
+      text-align: center;
+    }
+
+    .mensaje p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .imagen {
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .imagen img {
+      width: 200px;
+      height: 200px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .imagen img:hover {
+      transform: scale(1.1) rotate(-2deg);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0e4d92;
+      color: white;
+      font-size: 1rem;
+      position: relative;
+    }
+
+    .heart {
+      display: inline-block;
+      color: red;
+      font-size: 1.5rem;
+      animation: heartbeat 1s infinite;
+    }
+
+    .btn-mostrar {
+      display: block;
+      margin: 40px auto 10px;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      background-color: #0e4d92;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-mostrar:hover {
+      background-color: #072f63;
+    }
+
+    #mensaje-especial {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+#mensaje-especial.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+    #mensaje-especial p {
+      text-align: center;
+      font-size: 1.2rem;
+      white-space: pre-wrap;
+      min-height: 100px;
+    }
+
+    /* Animaciones */
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: transparent;
+      pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+      .imagen img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<audio id="musicaFondo" autoplay loop>
+  <source src="musica.mp3" type="audio/mp3">
+  Tu navegador no soporta audio HTML5.
+</audio>
+
+<header>
+  <h1>¡Feliz Día del Padre!</h1>
+  <p>Para el mejor papá del mundo ❤️</p>
+</header>
+
+<section class="imagen animada">
+  <img src="foto1.jpeg" alt="">
+  <img src="foto2.jpeg" alt="">
+  <img src="foto3.jpeg" alt="">
+</section>
+
+<section class="mensaje animada">
+  <h2>Gracias por todo, papá</h2>
+  <p>
+    Papá Darlinson, hoy no solo celebro que seas mi papá, sino que agradezco profundamente a la vida por haberte tenido a mi lado en cada momento, sobre todo en los más duros.<br>
+    Hemos pasado juntos muchas adversidades… y aunque a veces las circunstancias nos pusieron a prueba, tú siempre fuiste mi fuerza, mi guía y mi ejemplo silencioso.<br>
+    Como padre, no solo me diste lo que tenías, me diste incluso cuando no lo tenías. <br>Me diste coraje cuando yo dudaba, me diste apoyo cuando yo flaqueaba, y amor… siempre amor, incluso en los silencios.<br><br>
+    Gracias por enseñarme que ser hombre no es solo cuestión de palabras, sino de responsabilidad, presencia y corazón.
+    Hoy te celebro con orgullo, papá. <br><br>Te amo y te honro. 
+  </p>
+</section>
+
+<section class="imagen animada">
+  <img src="foto4.jpeg" alt="">
+  <img src="foto5.jpeg" alt="">
+  <img src="foto6.jpg" alt="">
+</section>
+
+<section class="mensaje animada">
+  <h2>Te amo, papá</h2>
+  <p>
+    Que este día sea tan especial como tú lo eres para mí. ¡Feliz Día del Padre! 🎉<br>
+    Con todo mi amor,<br><strong>Tu hijo ❤️</strong>
+  </p>
+</section>
+
+<footer>
+  &copy; 2025 - Hecho con amor para papá <span class="heart">❤️</span>
+</footer>
+
+<script>
+const animados = document.querySelectorAll('.animada');
+const observer = new IntersectionObserver((entradas) => {
+  entradas.forEach(entrada => {
+    if (entrada.isIntersecting) {
+      entrada.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
+
+animados.forEach(el => observer.observe(el));
+
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let w, h;
+let particles = [];
+
+function init() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+  particles = [];
+  for (let i = 0; i < 100; i++) {
+    particles.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 2 + 1,
+      d: Math.random() * 2 + 1
+    });
+  }
+}
+
+function draw() {
+  ctx.clearRect(0, 0, w, h);
+  ctx.fillStyle = "rgba(255,255,255,0.8)";
+  ctx.beginPath();
+  for (let i = 0; i < particles.length; i++) {
+    let p = particles[i];
+    ctx.moveTo(p.x, p.y);
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+  }
+  ctx.fill();
+  update();
+}
+
+function update() {
+  for (let i = 0; i < particles.length; i++) {
+    let p = particles[i];
+    p.y += p.d;
+    if (p.y > h) {
+      p.y = 0;
+      p.x = Math.random() * w;
+    }
+  }
+}
+
+function loop() {
+  draw();
+  requestAnimationFrame(loop);
+}
+
+init();
+loop();
+window.addEventListener('resize', init);
+</script>
+
+</body>
+</html>
